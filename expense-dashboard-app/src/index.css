@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+body { 
+    @apply text-gray-900 bg-gray-50 dark:bg-[#0f111a] dark:text-gray-100 transition-colors duration-500 font-sans antialiased; 
+    /* Premium elegant background styling for the app frame */
+    background-image: radial-gradient(at top right, rgba(108, 71, 255, 0.05) 0%, transparent 50%), radial-gradient(at bottom left, rgba(0, 212, 170, 0.05) 0%, transparent 50%);
+}
+
+.dark body {
+    background-image: radial-gradient(at top right, rgba(108, 71, 255, 0.15) 0%, transparent 50%), radial-gradient(at bottom center, rgba(0, 212, 170, 0.08) 0%, transparent 60%);
+}
+
+/* Glassmorphism approach heavily used in modern SaaS (Vercel, Linear) */
+.card { 
+    @apply bg-white/70 dark:bg-gray-800/60 backdrop-blur-xl border border-white/50 dark:border-gray-700/50 rounded-2xl p-5 lg:p-7 shadow-[0px_4px_24px_rgba(0,0,0,0.02)] dark:shadow-[0px_4px_24px_rgba(0,0,0,0.2)] transition-all duration-300 relative overflow-hidden; 
+}
+
+/* Enhancing inputs with modern focus rings */
+input, select {
+    @apply focus:ring-2 focus:ring-[#6c47ff]/20 focus:border-[#6c47ff] hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200 shadow-sm border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50;
+}
+
+.animate-fade-in { animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.animate-slide-up { animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
